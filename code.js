@@ -18,15 +18,15 @@ function mergesort(array) {
                 high = array.length - 1; // O(1)
             }
 
-            merge(array, low, mid, high); //O(n^2)
+            merge(array, low, mid, high); //O(n)
         }
     }
     return array; // O(1)
 }
 
 function merge(array, low, mid, high) {
-    for (j = low; j <= mid; j++) { //runs mid times -> n/2 -> O(n)
-        for (k = high; k >= mid; k--) { // runs mid-low times -> n/2 - constant -> O(n)
+    for (j = low; j <= mid; j++) { // runs n/2 times
+        for (k = high; k >= mid; k--) { // runs n/2 times -> combining with outer loop means the total runtime is O(n)
             if (array[k] <= array[j]) { // O(1)
                 [array[j], array[k]] = [array[k], array[j]]; // O(1)
             }
